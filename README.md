@@ -336,6 +336,12 @@ The API and the UI run as two **ECS Fargate** services from the same Docker imag
 - [Deployment](docs/deployment.md): AWS setup, CI/CD and teardown
 - [Testing](docs/testing.md): tests, manual checks, evaluation and load testing
 
-## Acknowledgements
 
-The initial codebase was adapted from [d-hackmt/8hr-MARATHON](https://github.com/d-hackmt/8hr-MARATHON).
+**Author**: Utkarsh Reddy Nathala
+
+**Linkedin**: https://www.linkedin.com/in/utkarshreddynathala/
+
+**Contact**: utkarshnathala@gmail.com , 8977011784
+
+
+

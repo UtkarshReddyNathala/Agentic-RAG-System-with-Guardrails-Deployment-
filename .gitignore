@@ -1,0 +1,56 @@
+# Generated ingestion output (recreated by `python -m app.ingestion.processor data`)
+processed_data/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+commands.md
+
+# Real AWS deployment state (only the *.example.sh templates are committed)
+scripts/deployment/aws_secret_arns.sh
+scripts/deployment/aws_deploy_state.sh
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+wheels/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+genv/
+tenvv/
+enterprise_env/
+
+# Generated eval report
+evals/report.json
+
+# IDE / tooling
+.vscode/
+.idea/
+.claude/
+
+# Logs / local state
+*.log
+.logfire/
+dump.rdb
+
+# Local stores
+*.sqlite
+*.db
+index.faiss
+metadata.pkl
+
+# OS
+.DS_Store
+Thumbs.db

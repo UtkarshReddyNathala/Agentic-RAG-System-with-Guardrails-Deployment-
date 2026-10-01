@@ -1,0 +1,49 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant-data:/qdrant/storage
+    environment:
+      QDRANT__SERVICE__GRPC_PORT: 6334
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8080"
+    environment:
+      # QDRANT_URL and QDRANT_API_KEY come from .env by default.
+      # Set them here only to override .env, for example to use the local qdrant service above.
+      QDRANT_COLLECTION: enterprise_rag
+      RATE_LIMIT_PER_MINUTE: "60"
+      RAG_API_KEY: ""
+      LOGFIRE_IGNORE_NO_CONFIG: "1"
+    env_file:
+      - .env
+    depends_on:
+      - qdrant
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      BACKEND_URL: http://api:8080
+      LOGFIRE_IGNORE_NO_CONFIG: "1"
+    env_file:
+      - .env
+    volumes:
+      - ./ui:/app/ui:ro
+    depends_on:
+      - api
+    command: ["streamlit", "run", "ui/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+
+volumes:
+  qdrant-data:

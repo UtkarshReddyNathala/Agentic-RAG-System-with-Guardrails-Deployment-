@@ -1,0 +1,53 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.installed.cfg
+build/
+dist/
+wheels/
+
+# Virtual environments (large, not needed in the image)
+venv/
+.venv/
+env/
+genv/
+enterprise_env/
+tenvv/
+
+# Environment & secrets
+.env
+commands.md
+
+# Git & IDE
+.git/
+.gitignore
+.github/
+.vscode/
+.idea/
+
+# Observability local state
+.logfire/
+
+# Claude Code memory
+.claude/
+
+# Documents and generated chunks (ingestion runs outside the image)
+data/
+processed_data/
+
+# Evaluation (runs locally, not in the container)
+evals/
+
+# Docs, scripts and tests (not needed to run the app)
+docs/
+scripts/
+tests/
+
+# OS
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,8 @@
+# Everything needed for local development: the app plus document loading,
+# evaluation and dev tools. Versions are set in pyproject.toml.
+#
+#   pip install -r requirements.txt
+#
+# For only what the app needs to run (used in the Docker image), see
+# requirements-prod.txt.
+-e .[ingestion,evals,dev]
